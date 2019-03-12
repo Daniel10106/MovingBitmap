@@ -26,5 +26,13 @@ namespace MovingBitmap
         {
             this.InitializeComponent();
         }
+
+        private void Grid_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.A)
+            {
+                
+            }
+        }
     }
 }
