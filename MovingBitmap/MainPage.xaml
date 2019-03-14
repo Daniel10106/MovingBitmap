@@ -6,9 +6,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
 
-    <Grid KeyDown="Grid_KeyDown">
-
+    <Grid KeyDown="ground_KeyDown">
+        <canvas:CanvasControl Width="600" Height="600" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="ground" CreateResources="Ground_CreateResources" Draw="Ground_Draw" ClearColor="CornFlowerBlue"/>
     </Grid>
 </Page>
