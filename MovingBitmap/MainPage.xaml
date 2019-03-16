@@ -8,9 +8,13 @@
     mc:Ignorable="d"
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
+
 
     <Grid KeyDown="Grid_KeyDown">
-        <canvas:CanvasControl Width="600" Height="600" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="ground" CreateResources="Ground_CreateResources" Draw="Ground_Draw" ClearColor="CornFlowerBlue" Loaded="Ground_Loaded" KeyDown="Ground_KeyDown" Tapped="Ground_Tapped" LostFocus="Ground_LostFocus" GotFocus="Ground_GotFocus" PreviewKeyDown="Ground_PreviewKeyDown"/>
+        <canvas:CanvasControl Width="600" Height="600" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="ground" CreateResources="Ground_CreateResources" Draw="Ground_Draw" ClearColor="CornFlowerBlue" />
+        <Button Name="Up" Content="Up" HorizontalAlignment="Left" Margin="221,309,0,0" VerticalAlignment="Top" Width="57" Click="Up_Click"/>
+        <Button Name="Down" Content="Down" HorizontalAlignment="Left" Margin="221,371,0,0" VerticalAlignment="Top" Width="57" Click="Down_Click"/>
+        <Button Name="Right" Content="Right" HorizontalAlignment="Left" Margin="305,371,0,0" VerticalAlignment="Top" Width="57" Click="Right_Click"/>
+        <Button Name="Left" Content="Left" HorizontalAlignment="Left" Margin="135,371,0,0" VerticalAlignment="Top" Width="58" Click="Left_Click"/>
     </Grid>
 </Page>

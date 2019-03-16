@@ -35,9 +35,6 @@ namespace MovingBitmap
         public MainPage()
         {
             this.InitializeComponent();
-
-            ground.GotFocus += Ground_GotFocus;
-            ground.LostFocus += Ground_LostFocus;
         }
 
         private void Ground_CreateResources(CanvasControl sender, CanvasCreateResourcesEventArgs args)
@@ -79,20 +76,25 @@ namespace MovingBitmap
         {
             xPos += 20.0f;
         }
-
-        private void Ground_LostFocus(object sender, RoutedEventArgs e)
+        
+        private void Left_Click(object sender, RoutedEventArgs e)
         {
-            ground.ClearColor = Colors.Red;
+            xPos -= 20.0f;
         }
 
-        private void Ground_GotFocus(object sender, RoutedEventArgs e)
+        private void Down_Click(object sender, RoutedEventArgs e)
         {
-            ground.ClearColor = Colors.Green;
+            yPos += 20.0f;
         }
 
-        private void Ground_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
+        private void Right_Click(object sender, RoutedEventArgs e)
         {
             xPos += 20.0f;
+        }
+
+        private void Up_Click(object sender, RoutedEventArgs e)
+        {
+            yPos -= 20.0f;
         }
     }
 }
