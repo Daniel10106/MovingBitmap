@@ -10,7 +10,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     
 
-    <Grid KeyDown="ground_KeyDown">
-        <canvas:CanvasControl Width="600" Height="600" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="ground" CreateResources="Ground_CreateResources" Draw="Ground_Draw" ClearColor="CornFlowerBlue"/>
+    <Grid KeyDown="Grid_KeyDown">
+        <canvas:CanvasControl Width="600" Height="600" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="ground" CreateResources="Ground_CreateResources" Draw="Ground_Draw" ClearColor="CornFlowerBlue" Loaded="Ground_Loaded" KeyDown="Ground_KeyDown" Tapped="Ground_Tapped" LostFocus="Ground_LostFocus" GotFocus="Ground_GotFocus" PreviewKeyDown="Ground_PreviewKeyDown"/>
     </Grid>
 </Page>

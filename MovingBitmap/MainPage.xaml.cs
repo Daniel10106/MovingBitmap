@@ -35,8 +35,9 @@ namespace MovingBitmap
         public MainPage()
         {
             this.InitializeComponent();
-            Window.Current.CoreWindow.KeyDown += ground_KeyDown;
-            Windows.UI.Xaml.Media.CompositionTarget.Rendering += CompositionTarget_Rendering;
+
+            ground.GotFocus += Ground_GotFocus;
+            ground.LostFocus += Ground_LostFocus;
         }
 
         private void Ground_CreateResources(CanvasControl sender, CanvasCreateResourcesEventArgs args)
@@ -56,24 +57,42 @@ namespace MovingBitmap
             ground.Invalidate();
         }
 
-        private void ground_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
+        private void Ground_Loaded(object sender, RoutedEventArgs e)
         {
-            if (args.VirtualKey == Windows.System.VirtualKey.A)
+            ground.Focus(FocusState.Keyboard);
+        }
+        
+        private void Ground_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            xPos += 20.0f;
+        }
+
+        private void Grid_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            switch (e.Key)
             {
-                xPos += 20.0f;
-            }          
+                default: xPos += 20.0f; break;
+            }
         }
 
-        private void CompositionTarget_Rendering(object sender, object e)
+        private void Ground_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            yPos = (float)bitmapOrb.GetValue(Canvas.TopProperty);
-            xPos = (float)bitmapOrb.GetValue(Canvas.LeftProperty);
-            moveOrb();
+            xPos += 20.0f;
         }
 
-        private void moveOrb()
+        private void Ground_LostFocus(object sender, RoutedEventArgs e)
         {
+            ground.ClearColor = Colors.Red;
+        }
 
+        private void Ground_GotFocus(object sender, RoutedEventArgs e)
+        {
+            ground.ClearColor = Colors.Green;
+        }
+
+        private void Ground_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            xPos += 20.0f;
         }
     }
 }
