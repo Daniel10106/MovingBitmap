@@ -68,15 +68,15 @@ namespace MovingBitmap
         {
             switch (e.Key)
             {
-                default: xPos += 20.0f; break;
+                case Windows.System.VirtualKey.Right: xPos += 20.0f; break;
+                case Windows.System.VirtualKey.Up: yPos -= 20.0f; break;
+                case Windows.System.VirtualKey.Down: yPos += 20.0f; break;
+                case Windows.System.VirtualKey.Left: xPos -= 20.0f; break;
+                default: break;
             }
         }
 
-        private void Ground_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            xPos += 20.0f;
-        }
-        
+
         private void Left_Click(object sender, RoutedEventArgs e)
         {
             xPos -= 20.0f;
@@ -95,6 +95,11 @@ namespace MovingBitmap
         private void Up_Click(object sender, RoutedEventArgs e)
         {
             yPos -= 20.0f;
+        }
+
+        private void Ground_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            ground.Focus(FocusState.Keyboard);
         }
     }
 }
